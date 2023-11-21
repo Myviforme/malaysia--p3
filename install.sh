@@ -124,13 +124,13 @@ REPLACE="
 print_modname() {
   ui_print "+----------------------------+"
   ui_print "|                            |"
-  ui_print "|   TH VoLTE/VoWiFi Enabler  |"
-  ui_print "|    (AIS / DTAC / TRUE-H)   |"
+  ui_print "|   MY VoLTE/VoWiFi Enabler  |"
+  ui_print "|    (UMO / DIGI / MAXISS)   |"
   ui_print "|            for             |"
   ui_print "|    Pixel 3/3a/4 series     |"
   ui_print "|                            |"
-  ui_print "|       v1.1-20200922        |"
-  ui_print "|       by thongtech         |"
+  ui_print "|       v1.1- 20231112       |"
+  ui_print "|       by CHARLESTAI        |"
   ui_print "|     based on nooriro's     |"
   ui_print "|                            |"
   ui_print "+----------------------------+"
@@ -179,9 +179,11 @@ on_install() {
     MBNDIR="/vendor/rfs/msm/mpss/readonly/vendor/mbn"
     LISTFILE="mcfg_sw/mbn_sw.txt"
     MBN_FILES="
-      mcfg_sw/generic/SEA/AIS/Commercial/Thailand/mcfg_sw.mbn
-      mcfg_sw/generic/SEA/DTAC/Commercial/VoLTE/mcfg_sw.mbn
-      mcfg_sw/generic/SEA/Truemove/Commercial/VoLTE/mcfg_sw.mbn
+      mcfg_sw/generic/SEA/Celcom/Commercial/Malaysia/mcfg_sw.mbn
+      mcfg_sw/generic/SEA/UMobile/Commercial/Malaysia/mcfg_sw.mbn
+      mcfg_sw/generic/SEA/Digi/Commercial/Malaysia/mcfg_sw.mbn
+      mcfg_sw/generic/SEA/Maxis/Commercial/Malaysia/mcfg_sw.mbn
+      mcfg_sw/generic/SEA/YTL/Commercial/mcfg_sw.mbn
     "
   # fi
   
@@ -193,7 +195,7 @@ on_install() {
     abort "! This module is only for Pixel 3 and later"
   fi
   
-  ui_print "- Installing Thai carrier configs"
+  ui_print "- Installing Malaysia carrier configs"
   unzip -o "$ZIPFILE" "mbn/${MBNTYPE}/*" -d "$MODPATH" >&2
   mkdir -p "${MODPATH}/system${MBNDIR}"
   mv "${MODPATH}/mbn/${MBNTYPE}/"* "${MODPATH}/system${MBNDIR}/"
